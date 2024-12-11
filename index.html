@@ -236,7 +236,7 @@
                 alert(v_area + '지역에 ' + keyword + ' 이(가) 존재하지 않습니다.');
             } else if (status === kakao.maps.services.Status.ERROR) {
                 // 발급받은 api키를 입력하지 않으면 지도가 생성이안되므로
-                // 카카오맵api에서 로컬호스트를 제대로 설정하지 않았거나 하면 발생(아마도)
+                // 카카오맵api에서 로컬호스트를 제대로 설정하지 않았거나 하면 발생
                 alert('검색 결과 중 오류가 발생했습니다.');
             }
         }
@@ -288,10 +288,7 @@
         }
 
         // 검색된 장소들을 리스트로 보여줄 수 있게 태그를 생성하는 함수
-        // 출력된 리스트에서 클릭을 했을 때 해당 매장을 중심으로 이동시켜주는 기능? 해보기
         // 리스트 <div>태그에 아이디를 주고 addEventListener로 클릭이벤트 발생?
-        // 아니면 다른 태그에 주어야 하나?
-        // 발생되는 문제점 예상 - 해당 매장이름을 제대로 받아오지 못하는 상황이 나올거같음(아마도)
         function createListItem(index, place) {
             var el = document.createElement('li'),
                 itemStr = '<div onclick="moveMap()" class="info">' +
@@ -315,10 +312,6 @@
         // 주소를 좌표로 변환하는 객체 생성
         var geocoder = new kakao.maps.services.Geocoder();
 
-
-
-        // 리스트에서 클릭을 했을 때 해당 매장을 중심으로 지도 움직이게 해보기 (아직 진행중)
-
         // 검색결과 보여주기 가리기 버튼 함수
         function showHide() {
             let v_placesList = document.getElementById('placesList');
@@ -336,7 +329,7 @@
             }
         }
 
-        // 마커를 담는 배열 생성 없으면 안됨
+        // 마커를 담는 배열
         var markers = [];
 
         // 검색된 장소들에 대해 지도에 핑을 찍어주는 함수
@@ -417,8 +410,6 @@
             // infowindow.open(map, marker);
         }
 
-
-        // 검색결과 목록의 자식 요소 삭제 함수
         function removeAllChildNodes(el) {
             while (el.hasChildNodes()) {
                 el.removeChild(el.lastChild);
